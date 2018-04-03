@@ -1,0 +1,63 @@
+
+@import "functions";
+@import "variables";
+
+ body {
+    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+    color: $gray-200;
+    a {
+        text-decoration: none !important;
+    }
+
+    .loading{
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        color: rgba($gray-200, $opacity);
+    
+        .fa{
+          animation-name: loading;
+          animation-iteration-count: infinite;
+          animation-duration: 1s;
+          transform: rotate(0);
+          transition: $transition-base;
+        }
+        
+        @keyframes loading{
+            from{
+            transform: rotate(0);
+            }
+            to{
+            transform: rotate(360deg);
+            }
+        }
+
+    }
+
+    #root{
+        min-height: inherit;
+        height: inherit;
+        overflow: hidden;
+
+        #app{
+            height: inherit;
+
+            .dataSide{
+                height: 100vh;
+                .swiper-container{
+                    min-height: 100%;
+                    overflow: hidden;
+                    .swiper-wrapper{
+                        .swiper-slide{
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

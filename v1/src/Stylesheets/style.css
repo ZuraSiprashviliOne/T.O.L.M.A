@@ -1,0 +1,39 @@
+body {
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  background-color: black;
+  color: #e9ecef; }
+  body a {
+    text-decoration: none !important; }
+  body .loading {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: rgba(233, 236, 239, 0.9); }
+    body .loading .fa {
+      animation-name: loading;
+      animation-iteration-count: infinite;
+      animation-duration: 1s;
+      transform: rotate(0);
+      transition: all 0.2s ease-in-out; }
+@keyframes loading {
+  from {
+    transform: rotate(0); }
+  to {
+    transform: rotate(360deg); } }
+  body #root {
+    min-height: inherit;
+    height: inherit;
+    overflow: hidden; }
+    body #root #app {
+      height: inherit; }
+      body #root #app .dataSide {
+        height: 100vh; }
+        body #root #app .dataSide .swiper-container {
+          min-height: 100%;
+          overflow: hidden; }
+
+/*# sourceMappingURL=style.css.map */
