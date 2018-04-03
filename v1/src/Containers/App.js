@@ -16,13 +16,9 @@ import 'react-id-swiper/src/styles/css/swiper.css';
 import '../Stylesheets/bootstrap.css';
 import '../Stylesheets/style.css';
 
-import AOS from 'aos';
-import {Scrollbar} from '../Components/Scrollbar';
+// import AOS from 'aos';
+// import {Loading} from '../Components/Loading';
 
-import {Loading} from '../Components/Loading';
-
-
-import Navigation from './Navigation';
 import Pages from './Pages';
 
 class App extends React.Component{
@@ -31,7 +27,7 @@ class App extends React.Component{
     }
 
     componentDidMount(){
-        AOS.init();
+        // AOS.init();
     }
 
     
@@ -39,21 +35,17 @@ class App extends React.Component{
         return (
             <div
                 id={'app'}>
-                <Scrollbar>
-                    <div id={'scrollBarContainer'}>
-                        <Router>
-                            <div id={'routerContainer'}>
-                                <Navigation />
-                                <Switch>
-                                    <Route
-                                        path={'/'}
-                                        exact={true}
-                                        component={Pages.Home}/>
-                                </Switch>
-                            </div>
-                        </Router>
+                <Router>
+                    <div
+                        id={'routerContainer'}>
+                        <Switch>
+                            <Route
+                                path={'/'}
+                                exact={true}
+                                component={Pages.Home}/>
+                        </Switch>
                     </div>
-                </Scrollbar>
+                </Router>
             </div>
         );
     }

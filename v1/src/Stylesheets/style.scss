@@ -6,8 +6,9 @@
     min-height: 100vh;
     height: 100vh;
     overflow: hidden;
-    background-color: black;
+    background-color: $black;
     color: $gray-200;
+    position: relative;
     a {
         text-decoration: none !important;
     }
@@ -18,7 +19,9 @@
         bottom: 0;
         left: 0;
         right: 0;
-        color: rgba($gray-200, $opacity);
+        background: $gray-200;
+        color: rgba($gray-900, $opacity);
+        z-index: 100;
     
         .fa{
           animation-name: loading;
@@ -47,16 +50,7 @@
         #app{
             height: inherit;
 
-            .dataSide{
-                height: 100vh;
-                .swiper-container{
-                    min-height: 100%;
-                    overflow: hidden;
-                    .swiper-wrapper{
-                        .swiper-slide{
-                        }
-                    }
-                }
+            #routerContainer{
             }
         }
     }

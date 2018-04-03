@@ -9,11 +9,11 @@ import thunk from 'redux-thunk';
 
 import logger from 'redux-logger';
 
+import HomeReducer from './Reducers/HomeReducer';
+
 export default createStore(
     combineReducers({
-        test: () => {
-            return [1,2,3,4]
-        }
+        HomeReducer
     }),
     {},
     applyMiddleware(
