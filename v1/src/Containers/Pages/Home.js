@@ -7,6 +7,8 @@ import {CheckPromises} from '../../Helpers/Promise';
 
 import '../../Stylesheets/home.css';
 
+import {Scrollbar} from '../../Components/Scrollbar';
+
 class Element extends React.Component{
     constructor(props){
         super(props);
@@ -16,8 +18,9 @@ class Element extends React.Component{
     render(){
         return (
             <div
+                className={'page'}
                 id={'home'}>
-                home page
+                x
             </div>
         );
     }

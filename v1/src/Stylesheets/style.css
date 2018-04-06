@@ -33,5 +33,7 @@ body {
     overflow: hidden; }
     body #root #app {
       height: inherit; }
+      body #root #app #routerContainer .page {
+        min-height: 100vh; }
 
 /*# sourceMappingURL=style.css.map */
