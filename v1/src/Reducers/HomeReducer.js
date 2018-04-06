@@ -1,9 +1,15 @@
 
 const HomeReducer = (state = {
-    a: true
+    sections: null
 }, action) => {
     switch(action.type){
-        
+        case 'SET_HOME_SECTIONS_FULFILLED': {
+            state = {
+                ...state,
+                sections: action.payload
+            };
+            break;
+        }
         default: {
 
             break;

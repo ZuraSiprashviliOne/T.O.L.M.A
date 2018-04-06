@@ -10,10 +10,12 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
 import HomeReducer from './Reducers/HomeReducer';
+import NavigationReducer from './Reducers/NavigationReducer';
 
 export default createStore(
     combineReducers({
-        HomeReducer
+        HomeReducer,
+        NavigationReducer
     }),
     {},
     applyMiddleware(

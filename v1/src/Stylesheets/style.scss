@@ -53,7 +53,34 @@
             #routerContainer{
 
                 .page{
-                    min-height: 100vh;
+                    position: relative;
+                    height: 100vh;
+                    .swiper-container{
+                        overflow: hidden;
+                        height: 100vh;
+                        .swiper-wrapper{
+                            .swiper-slide{
+                                height: 100vh;
+                            }
+                        }
+                        .swiper-pagination{
+
+                            .swiper-pagination-bullet{
+                                border: 1px solid rgba($gray-200, -.2);
+                                border-radius: 0;
+                                background-color: rgba($gray-200, 0.4);
+                                width: 10px;
+                                height: 10px;
+                                transition: $transition-base;
+                                transform: scale(0.8);
+                                
+                                &-active{
+                                    background-color: $gray-200;
+                                    transform: scale(1);
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

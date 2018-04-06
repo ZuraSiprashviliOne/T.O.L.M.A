@@ -20,24 +20,41 @@ import '../Stylesheets/style.css';
 // import AOS from 'aos';
 // import {Loading} from '../Components/Loading';
 
-import {NotFound} from '../Components/NotFound';
 import Pages from './Pages';
+
+import {Loading} from '../Components/Loading';
+
+import {SET_CURRENT_PAGE} from '../Actions/NavigationActions';
 
 class App extends React.Component{
     constructor(props){
         super(props);
 
         this.GetPage = this.GetPage.bind(this);
+        this.GetRoutes = this.GetRoutes.bind(this);
     }
 
     componentDidMount(){
         // AOS.init();
     }
 
-    GetPage(match){
-        let Page = Pages.find((page) => page.slag === match.params.page);
-        let ResultPage = Page ? Page.page : NotFound;
-        return <ResultPage match={match}/>
+    GetPage(slag){
+        let Page = Pages.find((page) => page.slag === slag) || Pages.find((page) => page.slag === 'not_found');
+        
+        if(this.props.Navigation.page.current !== slag){
+            this.props.setCurrentPage(slag);
+        }
+        return <Page.page/>;
+    }
+
+    GetRoutes(){
+        return Pages.map((page) => {
+            return <Route
+                key={page.slag}
+                path={`/pages/${page.slag}`}
+                exact={true}
+                component={() => this.GetPage(page.slag)}/>;
+        });
     }
     
     render(){
@@ -47,19 +64,20 @@ class App extends React.Component{
                 <Router>
                     <div
                         id={'routerContainer'}>
-                        <Link to={'/pages/home_page'}>home</Link>
-                        <Link to={'/pages/about_page'}>about</Link>
+                        {/* <Link to={'/pages/home_page'}>home</Link>
+                        <Link to={'/pages/about_page'}>about</Link> */}
                         <Switch>
                             <Route
                                 path={'/'}
                                 exact={true}
                                 component={() => <Redirect to={'pages/home_page'}/>}/>
-                            <Route
+                            {/* <Route
                                 path={'/pages/:page'}
                                 exact={true}
-                                component={({match}) => this.GetPage(match)}/>
+                                component={({match}) => this.GetPage(match)}/> */}
+                            {this.GetRoutes()}
                             <Route
-                                component={NotFound}/>
+                                component={Pages.find((page) => page.slag === 'not_found').page}/>
                         </Switch>
                     </div>
                 </Router>
@@ -70,12 +88,14 @@ class App extends React.Component{
 
 const states = (state) => {
     return {
-
+        Navigation: state.NavigationReducer
     };
 };
 const actions = (dispatch) => {
     return {
-
+        setCurrentPage: (slag) => {
+            dispatch(SET_CURRENT_PAGE(slag));
+        }
     };
 };
 

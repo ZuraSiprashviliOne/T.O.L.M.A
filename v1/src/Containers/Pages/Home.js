@@ -2,17 +2,38 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import {Loading} from '../../Components/Loading';
-import {CheckPromises} from '../../Helpers/Promise';
+import Components from '../../Components/Home/Components';
 
-import '../../Stylesheets/home.css';
+import {SET_HOME_SECTIONS} from '../../Actions/HomeActions';
 
 import {Scrollbar} from '../../Components/Scrollbar';
+import Swiper from 'react-id-swiper';
+
+import {CheckPromises} from '../../Helpers/Promise';
+import {Loading} from '../../Components/Loading';
+
+import '../../Stylesheets/home.css';
 
 class Element extends React.Component{
     constructor(props){
         super(props);
 
+        this.GetSections = this.GetSections.bind(this);
+    }
+
+    GetSections(){
+        return this.props.Home.sections.map((section) => {
+            let name = section.name[0].toUpperCase() + section.name.substr(1);
+            let Component = Components[name];
+            return (
+                <div
+                    key={`section_${name}`}>
+                    <Scrollbar>
+                        <Component Home={this.props.Home} {...section}/>
+                    </Scrollbar>
+                </div>
+            );
+        });
     }
 
     render(){
@@ -20,7 +41,15 @@ class Element extends React.Component{
             <div
                 className={'page'}
                 id={'home'}>
-                x
+                <Swiper
+                    direction={'vertical'}
+                    slidesPerView={1}
+                    pagination={{
+                        el: '.swiper-pagination',
+                        clickable: true
+                    }}>
+                    {this.GetSections()}
+                </Swiper>
             </div>
         );
     }
@@ -30,26 +59,26 @@ class Home extends React.Component{
     constructor(props){
         super(props);
 
-        this.init = this.init.bind(this);
-        this.check = this.check.bind(this);
+        this.Init = this.Init.bind(this);
+        this.Check = this.Check.bind(this);
     }
     
     componentWillMount(){
-        this.init(this.props);
+        this.Init(this.props);
     }
 
-    init(props){
-        if(this.check(props) === false){
-
+    Init(props){
+        if(this.Check(props) === false){
+            props.setSections();
         }
     }
 
-    check(props = this.props){
+    Check(props = this.props){
         return CheckPromises(props.Home) !== false;
     }
 
     render(){
-        return this.check() ? <Element {...this.props}/> : <Loading />;
+        return this.Check() ? <Element {...this.props}/> : <Loading />;
     }
 }
 
@@ -61,6 +90,9 @@ const states = (state) => {
 
 const actions = (dispatch) => {
     return {
+        setSections: () => {
+            dispatch(SET_HOME_SECTIONS());
+        }
     };
 };
 
