@@ -8,8 +8,10 @@ export class We extends React.Component{
     
     render() {
         return (
-            <div>
-                We Are ;)
+            <div
+                id={'we'}
+                className={'pageItem'}>
+                we
             </div>
         );
     }

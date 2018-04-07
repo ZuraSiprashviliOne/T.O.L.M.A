@@ -25,14 +25,19 @@ class Element extends React.Component{
         return this.props.Home.sections.map((section) => {
             let name = section.name[0].toUpperCase() + section.name.substr(1);
             let Component = Components[name];
-            return (
-                <div
-                    key={`section_${name}`}>
-                    <Scrollbar>
-                        <Component Home={this.props.Home} {...section}/>
-                    </Scrollbar>
-                </div>
-            );
+
+            // #################################
+            
+            // if(section.name === 'services'){
+            //     return null;
+            // }
+
+            // #################################
+            
+            return <Component 
+                key={`section_${name}`}
+                Home={this.props.Home} 
+                {...section}/>;
         });
     }
 
@@ -41,15 +46,18 @@ class Element extends React.Component{
             <div
                 className={'page'}
                 id={'home'}>
-                <Swiper
+                {/* <Swiper
                     direction={'vertical'}
                     slidesPerView={1}
+                    simulateTouch={false}
                     pagination={{
                         el: '.swiper-pagination',
                         clickable: true
-                    }}>
-                    {this.GetSections()}
-                </Swiper>
+                    }}> */}
+                        <div className={'sectionsContainer'}>
+                            {this.GetSections()}
+                        </div>                            
+                {/* </Swiper> */}
             </div>
         );
     }

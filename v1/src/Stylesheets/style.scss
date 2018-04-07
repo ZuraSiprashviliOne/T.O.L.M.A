@@ -2,12 +2,51 @@
 @import "functions";
 @import "variables";
 
- body {
+.elevator_animation{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .line{
+        background-repeat: repeat-y;
+        background-position-y: 0;
+        background-position-x: center;
+
+        animation-name: lineAn;
+        animation-iteration-count: infinite;
+
+        transition: $transition-base;
+        opacity: 0.5;
+
+        &:hover{
+            opacity: 1;
+            transform: scale(2);
+        }
+        
+        @keyframes lineAn{
+            0%{
+                background-position-y: 0;
+            }
+            90%{
+                background-position-y: -100vh;
+            }
+        }
+    }
+}
+
+html{
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+body {
     min-height: 100vh;
     height: 100vh;
     overflow: hidden;
-    background-color: $black;
-    color: $gray-200;
+    background-color: $secondary;
+    color: $primary;
     position: relative;
     a {
         text-decoration: none !important;
@@ -51,36 +90,8 @@
             height: inherit;
 
             #routerContainer{
-
-                .page{
-                    position: relative;
-                    height: 100vh;
-                    .swiper-container{
-                        overflow: hidden;
-                        height: 100vh;
-                        .swiper-wrapper{
-                            .swiper-slide{
-                                height: 100vh;
-                            }
-                        }
-                        .swiper-pagination{
-
-                            .swiper-pagination-bullet{
-                                border: 1px solid rgba($gray-200, -.2);
-                                border-radius: 0;
-                                background-color: rgba($gray-200, 0.4);
-                                width: 10px;
-                                height: 10px;
-                                transition: $transition-base;
-                                transform: scale(0.8);
-                                
-                                &-active{
-                                    background-color: $gray-200;
-                                    transform: scale(1);
-                                }
-                            }
-                        }
-                    }
+                height: 100vh;
+                .sectionsContainer{
                 }
             }
         }

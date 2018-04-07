@@ -1,4 +1,56 @@
 #home {
   position: relative; }
+  #home #services .serviceContainer {
+    transform: rotate(45deg); }
+    @media only screen and (max-width: 768px) {
+      #home #services .serviceContainer {
+        transform: rotate(0);
+        margin: auto !important;
+        height: auto !important;
+        width: auto !important;
+        flex-direction: column !important; } }
+    @media only screen and (max-width: 576px) {
+      #home #services .serviceContainer {
+        flex-direction: column !important; } }
+    #home #services .serviceContainer .serviceItem {
+      flex: 0 0 50%;
+      border: 1px solid rgba(51, 55, 58, 0.2);
+      position: relative;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer; }
+      #home #services .serviceContainer .serviceItem:hover.bg-primary {
+        z-index: 1;
+        background-color: #3f4448 !important;
+        transform: scale(1.1); }
+      #home #services .serviceContainer .serviceItem:hover.bg-white {
+        z-index: 1;
+        background-color: #e2e4e8 !important;
+        transform: scale(1.1); }
+      @media only screen and (max-width: 768px) {
+        #home #services .serviceContainer .serviceItem {
+          flex: 1;
+          border: 0; } }
+      #home #services .serviceContainer .serviceItem .serviceItemsContainer {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        transform: rotate(-45deg); }
+        @media only screen and (max-width: 768px) {
+          #home #services .serviceContainer .serviceItem .serviceItemsContainer {
+            transform: rotate(0);
+            flex-direction: column !important;
+            position: static !important;
+            width: 100%;
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: flex-start !important; } }
+        #home #services .serviceContainer .serviceItem .serviceItemsContainer .text {
+          width: 90%;
+          margin: 0 auto; }
+          @media only screen and (max-width: 768px) {
+            #home #services .serviceContainer .serviceItem .serviceItemsContainer .text {
+              width: auto !important;
+              text-align: left !important;
+              flex: 1; } }
 
 /*# sourceMappingURL=home.css.map */

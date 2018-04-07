@@ -13,6 +13,6 @@ export class Header extends React.Component{
                 className={'pageItem'}>
                 header
             </div>
-        )
+        );
     }
 };

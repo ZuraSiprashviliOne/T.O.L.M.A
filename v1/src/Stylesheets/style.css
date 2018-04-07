@@ -1,9 +1,35 @@
+.elevator_animation {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+  .elevator_animation .line {
+    background-repeat: repeat-y;
+    background-position-y: 0;
+    background-position-x: center;
+    animation-name: lineAn;
+    animation-iteration-count: infinite;
+    transition: all 0.2s ease-in-out;
+    opacity: 0.5; }
+    .elevator_animation .line:hover {
+      opacity: 1;
+      transform: scale(2); }
+@keyframes lineAn {
+  0% {
+    background-position-y: 0; }
+  90% {
+    background-position-y: -100vh; } }
+html {
+  overflow-x: hidden;
+  width: 100vw; }
+
 body {
   min-height: 100vh;
   height: 100vh;
   overflow: hidden;
-  background-color: #000;
-  color: #e9ecef;
+  background-color: #f0f1f3;
+  color: #33373a;
   position: relative; }
   body a {
     text-decoration: none !important; }
@@ -33,24 +59,7 @@ body {
     overflow: hidden; }
     body #root #app {
       height: inherit; }
-      body #root #app #routerContainer .page {
-        position: relative;
+      body #root #app #routerContainer {
         height: 100vh; }
-        body #root #app #routerContainer .page .swiper-container {
-          overflow: hidden;
-          height: 100vh; }
-          body #root #app #routerContainer .page .swiper-container .swiper-wrapper .swiper-slide {
-            height: 100vh; }
-          body #root #app #routerContainer .page .swiper-container .swiper-pagination .swiper-pagination-bullet {
-            border: 1px solid rgba(233, 236, 239, 0);
-            border-radius: 0;
-            background-color: rgba(233, 236, 239, 0.4);
-            width: 10px;
-            height: 10px;
-            transition: all 0.2s ease-in-out;
-            transform: scale(0.8); }
-            body #root #app #routerContainer .page .swiper-container .swiper-pagination .swiper-pagination-bullet-active {
-              background-color: #e9ecef;
-              transform: scale(1); }
 
 /*# sourceMappingURL=style.css.map */

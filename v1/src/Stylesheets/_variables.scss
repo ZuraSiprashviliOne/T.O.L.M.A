@@ -67,12 +67,12 @@ $colors: map-merge((
   "gray-dark":  $gray-800
 ), $colors);
 
-$primary:       #face49 !default;
-$secondary:     #242d2e !default;
+$primary:       #33373a !default;
+$secondary:     #f0f1f3 !default;
 $success:       $green !default;
-$info:          $cyan !default;
+$info:          #00267f !default;
 $warning:       $yellow !default;
-$danger:        $red !default;
+$danger:        #e74c3c !default;
 $light:         $gray-100 !default;
 $dark:          $gray-800 !default;
 
@@ -168,6 +168,13 @@ $paragraph-margin-bottom:   1rem !default;
 //
 // Define the minimum dimensions at which your layout will change,
 // adapting to different screen sizes, for use in media queries.
+
+
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
 
 $grid-breakpoints: (
   xs: 0,

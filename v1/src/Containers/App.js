@@ -25,6 +25,7 @@ import Pages from './Pages';
 import {Loading} from '../Components/Loading';
 
 import {SET_CURRENT_PAGE} from '../Actions/NavigationActions';
+import { Scrollbar } from '../Components/Scrollbar';
 
 class App extends React.Component{
     constructor(props){
@@ -66,19 +67,21 @@ class App extends React.Component{
                         id={'routerContainer'}>
                         {/* <Link to={'/pages/home_page'}>home</Link>
                         <Link to={'/pages/about_page'}>about</Link> */}
-                        <Switch>
-                            <Route
-                                path={'/'}
-                                exact={true}
-                                component={() => <Redirect to={'pages/home_page'}/>}/>
-                            {/* <Route
-                                path={'/pages/:page'}
-                                exact={true}
-                                component={({match}) => this.GetPage(match)}/> */}
-                            {this.GetRoutes()}
-                            <Route
-                                component={Pages.find((page) => page.slag === 'not_found').page}/>
-                        </Switch>
+                        <Scrollbar>
+                            <Switch>
+                                <Route
+                                    path={'/'}
+                                    exact={true}
+                                    component={() => <Redirect to={'pages/home_page'}/>}/>
+                                {/* <Route
+                                    path={'/pages/:page'}
+                                    exact={true}
+                                    component={({match}) => this.GetPage(match)}/> */}
+                                        {this.GetRoutes()}
+                                <Route
+                                    component={Pages.find((page) => page.slag === 'not_found').page}/>
+                            </Switch>
+                        </Scrollbar>
                     </div>
                 </Router>
             </div>
