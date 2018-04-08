@@ -1,0 +1,43 @@
+html {
+  overflow-x: hidden;
+  width: 100vw; }
+
+.loading {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #e9ecef;
+  color: rgba(33, 37, 41, 0.9);
+  z-index: 100; }
+  .loading .fa {
+    animation-name: loading;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    transform: rotate(0);
+    transition: all 0.2s ease-in-out; }
+@keyframes loading {
+  from {
+    transform: rotate(0); }
+  to {
+    transform: rotate(360deg); } }
+body {
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #f0f1f3;
+  color: #33373a;
+  position: relative; }
+  body a {
+    text-decoration: none !important; }
+  body #root {
+    min-height: inherit;
+    height: inherit;
+    overflow: hidden; }
+    body #root #app {
+      height: inherit; }
+      body #root #app #routerContainer {
+        height: 100vh; }
+
+/*# sourceMappingURL=style.css.map */
