@@ -9,49 +9,71 @@
     #services{
         .serviceContainer{
             transform: rotate(45deg);   
-            @media only screen and (max-width: $md){
+            // @media only screen and (max-width: $md){
+            //     transform: rotate(0);
+            //     margin: auto !important;
+            //     height: auto !important;
+            //     width: auto !important;
+            //     flex-direction: column !important;
+            // } 
+            @media only screen and(max-width: $sm){
                 transform: rotate(0);
                 margin: auto !important;
                 height: auto !important;
                 width: auto !important;
                 flex-direction: column !important;
-            } 
-            @media only screen and(max-width: $sm){
                 flex-direction: column !important;
             }
             
             .serviceItem{
                 flex: 0 0 50%;
-                border: 1px solid rgba($primary, 0.2);
                 position: relative;
                 transition: $transition-base;
                 cursor: pointer;
+                border: 1px solid rgba($primary, 0.2);
+
+                &:nth-child(odd){
+                    border-right: 0;
+                }
                 
                 &:hover{
                     &.bg-primary{
                         z-index: 1;
                         background-color: lighten($primary, 5%) !important;
-                        transform: scale(1.1);
+                        // transform: scale(1.1);
                     }
                     &.bg-white{
                         z-index: 1;
                         background-color: darken($secondary, 5%) !important;
-                        transform: scale(1.1);
+                        // transform: scale(1.1);
                     }
                 }
                 
-                @media only screen and (max-width: $md){
+                // @media only screen and (max-width: $md){
+                //     flex: 1;
+                //     border: 0;
+                // } 
+                
+                @media only screen and (max-width: $sm){
                     flex: 1;
                     border: 0;
                 } 
-                
                 .serviceItemsContainer{
                     position: absolute;
                     top: 0;
                     bottom: 0;
                     transform: rotate(-45deg);
 
-                    @media only screen and (max-width: $md){
+                    // @media only screen and (max-width: $md){
+                    //     transform: rotate(0);
+                    //     flex-direction: column !important;
+                    //     position: static !important;
+                    //     width: 100%;
+                    //     display: flex !important;
+                    //     flex-direction: row !important;
+                    //     justify-content: flex-start !important;
+                    // } 
+                    @media only screen and (max-width: $sm){
                         transform: rotate(0);
                         flex-direction: column !important;
                         position: static !important;
@@ -64,7 +86,7 @@
                     .text{
                         width: 90%;
                         margin: 0 auto;
-                        @media only screen and(max-width: $md){
+                        @media only screen and(max-width: $sm){
                             width: auto !important;
                             text-align: left !important;
                             flex: 1;

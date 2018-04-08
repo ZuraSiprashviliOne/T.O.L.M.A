@@ -3,6 +3,8 @@ import React from 'react';
 
 import FontAwesome from 'react-fontawesome';
 
+import {Link} from 'react-router-dom';
+
 export class Services extends React.Component{
     constructor(props) {
         super(props);
@@ -38,8 +40,9 @@ export class Services extends React.Component{
 
         return services.map((service, index) => {
             return (
-                <div 
-                    className={`serviceItem my-1 my-md-0 px-2 px-md-0 py-lg-0 py-2 text-center d-flex flex-column justify-content-center align-items-center  ${index === 0 || index === 1 ? 'bg-primary': 'bg-white'}`}
+                <Link 
+                    to={service.route}
+                    className={`serviceItem my-1 my-sm-0 px-2 px-sm-0 py-lg-0 py-2 text-center d-flex flex-column justify-content-center align-items-center ${index === 1 ? `order-3 order-sm-${index}`: `order-${index}`}  ${index === 0 || index === 1 ? 'bg-primary': 'bg-white'}`}
                     key={service.name}>
                     <div className={'serviceItemsContainer d-flex flex-column align-items-center justify-content-center'}>
                         <div
@@ -50,14 +53,14 @@ export class Services extends React.Component{
                                     name={service.icon}/>
                             </div>
                         </div>
-                        <div className={`px-2 px-md-0 text-capitalize text ${index === 0 || index === 1 ? 'text-light' : 'text-primary'}`}>
+                        <div className={`px-2 px-sm-0 text-capitalize text ${index === 0 || index === 1 ? 'text-light' : 'text-primary'}`}>
                             <div
                                 className={'serviceItemItetext'}>
                                 {service.title}
                             </div>
                         </div>
                     </div>
-                </div>
+                </Link>
             );
         });
     }
@@ -66,10 +69,10 @@ export class Services extends React.Component{
         return (
             <div
                 id={'services'}
-                className={'pageItem'}>
+                className={'pageItem py-3'}>
                 <div className={'container'}>
                     <div className={'row'}>
-                        <div className={'col-lg-6 offset-lg-3 col-md-10 offset-md-1'}>
+                        <div className={'col-lg-6 offset-lg-3 col-sm-10 offset-sm-1'}>
                             <div className={'blockTitle text-uppercase text-primary display-3 text-center'}>
                                 {this.GetTitle()}
                             </div>
@@ -79,7 +82,7 @@ export class Services extends React.Component{
                         </div> */}
                     </div>
                     <div className={'row'}>
-                        <div className={'services p-0 mt-md-0 mt-5 col-lg-6 offset-lg-3 col-md-10 offset-md-1'}>
+                        <div className={'services p-0 mt-sm-0 mt-5 col-lg-6 offset-lg-3 col-sm-10 offset-sm-1'}>
                             <div 
                                 ref={(element) => {
                                     this.SetRectSize(element);
